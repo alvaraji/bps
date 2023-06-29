@@ -23,7 +23,6 @@ header {
    position: relative;
    padding: 10px 50px;
    text-align: center;
-   top: 10%;
    left: 0;
    font-size: 200%;
    width: 100%;
@@ -74,6 +73,8 @@ header {
 .navigation
 {
    position: relative;
+   top: 0;
+   left: 0;
    width: 300px;
    height: 100vh;
    background: var(--red);
@@ -89,16 +90,16 @@ header {
 
 .navigation h2{
    position: relative;
-   font-size: 200%;
+   font-size: 150%;
    color: white;
-   padding: 10px 0 10px 0;
+   padding: 10px 0 5px 0;
 }
 .navigation h3 {
    position: relative;
    color: white;
    text-decoration: underline;
    padding: 10px 0 5px 0;
-   font-size: 120%;
+   font-size: 110%;
    left: -10px;
 }
 
@@ -165,10 +166,11 @@ header {
 /* main */
 .main
 {
-   position: relative;
+   position: absolute;
    width: calc(100% - 300px);
+   top: 0;
    left: 300px;
-   min-height: 100vh;
+   height: 100%;
    background: white;
    transition: 0.5s;
 }
@@ -192,7 +194,7 @@ header {
 .toggle
 {
    position: absolute;
-   top: -1007px;
+   top: 0px;
    left: 0px;
    width: 60px;
    height: 60px;
@@ -207,10 +209,11 @@ header {
 
 .main .iframe 
 {
-   position: absolute;
-   top: -1007px;
+   position: relative;
+   top: 0px;
    left: 0;
-   height: 90%;
+   height: 100%;
+   margin: 0;
 }
 
 
