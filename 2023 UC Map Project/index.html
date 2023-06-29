@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+   <head>
+        <meta name="viewport" contents="with=device-width, initial-scale=1.0">
+        <title>UC West Map</title>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+   </head>
+   <body>
+      <header>
+         <h1>Bearcat Positioning System</h1>
+         <div class="search">
+            <label>
+                <input id="search" type="text" placeholder="Search Here" onchange="Search()">
+                <ion-icon name="search-outline"></ion-icon>
+            </label>
+        </div>
+      </header>
+      <div class="container">
+         <div class="navigation">
+            <h2>Buildings</h2>
+            <ul class="lists">
+               <h3>Libraries</h3>
+               <li onclick="Blegen()">Blegen Library</li>
+               <li onclick="Campus()">Campus Recreation Center</li>
+               <li onclick="College()">College of Law Bulding</li>
+               <li onclick="Langsam()">Langsam Library</li>
+               <li onclick="Teachers()">Teachers-Dyers Complex</li>
+               <h3>Residence Halls</h3>
+               <li onclick="Calhoon()">Calhoon Hall</li>
+               <li onclick="Dabney()">Dabney Hall</li>
+               <li onclick="Danial()">Danials Hall</li>
+               <li onclick="Marian()">Marian Spencer Hall</li>
+               <li onclick="Morgans()">Morgans Hall</li>
+               <li onclick="Schneidner()">Schneidner Hall</li>
+               <li onclick="Scioto()">Scioto Hall</li>
+               <li onclick="Siddall()">Siddall Hall</li>
+               <li onclick="Turner()">Turner Hall</li>
+               <h3>Lecture Halls</h3>
+               <li onclick="wc()">60 West Charlton</li>
+               <li onclick="Armory()">Armory Fieldhouse</li>
+               <li onclick="Baldwin()">Baldwin Hall</li>
+               <li onclick="Blegen()">Blegen Library</li>
+               <li onclick="Braunstein()">Braunstein Hall</li>
+               <li onclick="College()">College of Law Bulding</li>
+               <li onclick="Corbett()">Corbett Center for Performing Arts</li>
+               <li onclick="Crosley()">Crosley Tower</li>
+               <li onclick="Dieterie()">Dieterie Vocal Arts Center</li>
+               <li onclick="Edwards()">Edwards Center</li>
+               <li onclick="French()">French Hall</li>
+               <li onclick="Geology()">Geology Physics Building</li>
+               <li onclick="Langsam()">Langsam Library</li>
+               <li onclick="Linder()">Linder Hall</li>
+               <li onclick="Mantei()">Mantei Center</li>
+               <li onclick="Mary()">Mary Emery Hall</li>
+               <li onclick="Memorial()">Memorial Hall</li>
+               <li onclick="Old()">Old Chemistry</li>
+               <li onclick="Reiveschl()">Reiveschl Hall</li>
+               <li onclick="Rhodes()">Rhodes Hall</li>
+               <li onclick="Richard()">Richard E. Linder Center</li>
+               <li onclick="Swift()">Swift Hall</li>
+               <li onclick="Teachers()">Teachers-Dyers Complex</li>
+               <li onclick="Zimmer()">Zimmer Hall</li>
+               <h3>Student Life Centers</h3>
+               <li onclick="Steger()">Steger Student Life Center</li>
+            </ul>
+         </div>
+      </div>
+      <div class="main">
+         <div class="toggle">
+            <ion-icon name="menu-outline"></ion-icon>
+         </div>
+         <div class="iframe" style="height:100%px; width:100%; border:2px solid #eee; display:inline-block; overflow:hidden;">
+            <iframe style="position:relative; top:-60px; border:none;" id="maps" src="https://www.google.com/maps/d/embed?mid=1TjrgYqympQvIw1yXliRJPGXY2Mg&z=16hl=en_US&ehbc=2E312F"  height="100%" width="100%"></iframe>
+         </div>
+      </div> 
+
+      
+
+      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+      <script nonmodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+      
+      <script>
+         //Menu Toggle
+         let toggle = document.querySelector('.toggle');
+         let navigation = document.querySelector('.navigation');
+         let main = document.querySelector('.main');
+
+         toggle.onclick = function(){
+            navigation.classList.toggle('active');
+            main.classList.toggle('active');
+            lists.classList.toggle('active');
+         }
+
+         //add hovered class in selected list item
+         let list = document.querySelectorAll('.navigation li');
+         function activeLink(){
+               list.forEach((item) =>
+               item.classList.remove('hovered'));
+               this.classList.add('hovered');
+         }
+         list.forEach((item)=>
+         item.addEventListener('mouseover',activeLink));
+
+         function MapView(){
+               window.location = "index.html"
+         }
+
+         function Buildings(){
+               window.location = "buildings.html"
+         }
+
+         //function Search() {
+         //   var search = document.getElementById("search").value;
+         //   if (search == "Aronoff") {
+         //      console.log(document.getElementById("maps").src)
+         //     document.getElementById("maps").src = "https://www.google.com/maps?q=39.13415336732963, -84.51892220201279&output=embed";
+         //      document.getElementById("maps").style = "top:0px;";
+         //   }
+         //   else {
+         //      window.location = "index.html"
+         //   }
+         //}
+         
+         //
+         let value = document.getElementById("qqvbed-tJHJj-fmcmS");
+         console.log(value);
+         
+
+      </script>
+   </body>
+</html>
