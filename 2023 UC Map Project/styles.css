@@ -85,7 +85,7 @@ header {
 
 .navigation.active
 {
-   width: 180px;
+   width: 130px;
 }
 
 .navigation h2{
@@ -112,6 +112,13 @@ header {
    line-height: .65em;
    color: black;
 }
+
+.lists.active {
+   text-indent: 100%;
+   white-space: nowrap;
+   overflow: hidden;
+}
+
 .navigation ul li
 {
    position: relative;
@@ -178,7 +185,7 @@ header {
 .main.active
 {
    width: calc(100% - 80px);
-   left: 160px;
+   left: 130px;
 }
 
 .topbar
@@ -216,6 +223,51 @@ header {
    margin: 0;
 }
 
+/* Popup container - can be anything you want */
+.popup {
+   position: relative;
+   display: inline-block;
+   cursor: pointer;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+ }
+ 
+ /* The actual popup */
+ .popup .popuptext {
+   position: absolute;
+   visibility: hidden;
+   height: 1050%;
+   width: 160px;
+   background-color: var(--white);
+   color: var(--black1);
+   text-align: center;
+   border-radius: 20px;
+   padding: 8px 0;
+   z-index: 1;
+   bottom: 125%;
+   left: 50%;
+   margin-left: -80px;
+ }
+
+.popup .popuptext::after {
+   content: "";
+   position: absolute;
+   top: 100%;
+   left: 50%;
+   margin-left: -5px;
+   border-width: 5px;
+   border-style: solid;
+   border-color: #555 transparent transparent transparent;
+ }
+ 
+ /* Toggle this class - hide and show the popup */
+ .popup .show {
+   visibility: visible;
+   -webkit-animation: fadeIn 1s;
+   animation: fadeIn 1s;
+ }
 
 
 
