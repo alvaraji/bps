@@ -21,54 +21,43 @@
                 <ion-icon name="search-outline"></ion-icon>
             </label>
         </div>
+        
       </header>
       <div class="container">
          <div class="navigation">
             <h2>Buildings</h2>
             <ul class="lists">
                <h3>Libraries</h3>
-               <li onclick="Blegen()">Blegen Library</li>
-               <li onclick="Campus()">Campus Recreation Center</li>
-               <li onclick="College()">College of Law Bulding</li>
                <li onclick="Langsam()">Langsam Library</li>
-               <li onclick="Teachers()">Teachers-Dyers Complex</li>
+
                <h3>Residence Halls</h3>
-               <li onclick="Calhoon()">Calhoon Hall</li>
                <li onclick="Dabney()">Dabney Hall</li>
-               <li onclick="Danial()">Danials Hall</li>
-               <li onclick="Marian()">Marian Spencer Hall</li>
-               <li onclick="Morgans()">Morgans Hall</li>
-               <li onclick="Schneidner()">Schneidner Hall</li>
+               <li onclick="Daniels()">Daniels Hall</li>
+               <li onclick="Marian()">Marian Spencer</li>
+               <li onclick="Morgens()">Morgens Hall</li>
                <li onclick="Scioto()">Scioto Hall</li>
-               <li onclick="Siddall()">Siddall Hall</li>
-               <li onclick="Turner()">Turner Hall</li>
                <h3>Lecture Halls</h3>
-               <li onclick="wc()">60 West Charlton</li>
-               <li onclick="Armory()">Armory Fieldhouse</li>
+               <li onclick="Arts()">Arts and Sciences</li>
                <li onclick="Baldwin()">Baldwin Hall</li>
-               <li onclick="Blegen()">Blegen Library</li>
                <li onclick="Braunstein()">Braunstein Hall</li>
-               <li onclick="College()">College of Law Bulding</li>
-               <li onclick="Corbett()">Corbett Center for Performing Arts</li>
                <li onclick="Crosley()">Crosley Tower</li>
-               <li onclick="Dieterie()">Dieterie Vocal Arts Center</li>
-               <li onclick="Edwards()">Edwards Center</li>
-               <li onclick="French()">French Hall</li>
-               <li onclick="Geology()">Geology Physics Building</li>
-               <li onclick="Langsam()">Langsam Library</li>
-               <li onclick="Linder()">Linder Hall</li>
+               <li onclick="DAAP()">DAAP</li>
+               <li onclick="Law()">College of Law</li>
+               <li onclick="Lindner()">Lindner Hall</li>
                <li onclick="Mantei()">Mantei Center</li>
-               <li onclick="Mary()">Mary Emery Hall</li>
-               <li onclick="Memorial()">Memorial Hall</li>
-               <li onclick="Old()">Old Chemistry</li>
-               <li onclick="Reiveschl()">Reiveschl Hall</li>
+               <li onclick="Old()">Old Chem</li>
+               <li onclick="Rieveschl()">Rieveschl Hall</li>
                <li onclick="Rhodes()">Rhodes Hall</li>
-               <li onclick="Richard()">Richard E. Linder Center</li>
                <li onclick="Swift()">Swift Hall</li>
-               <li onclick="Teachers()">Teachers-Dyers Complex</li>
-               <li onclick="Zimmer()">Zimmer Hall</li>
-               <h3>Student Life Centers</h3>
+               <h3>Other</h3>
+               <li onclick="AACRC()">AACRC</li>
+               <li onclick="Rec()">Campus Rec Center</li>
+               <li onclick="Fifth()">Fifth Third Arena</li>
+               <li onclick="French()">French Hall</li>
+               <li onclick="Nippert()">Nippert Stadium</li>
+               <li onclick="NippertWest()">Nippert West Pavilion</li>
                <li onclick="Steger()">Steger Student Life Center</li>
+               <li onclick="Tangeman()">Tangeman University Center</li>
             </ul>
          </div>
          <div class="main">
@@ -79,14 +68,13 @@
                <iframe style="position:relative; top:-60px; border:none;" id="maps" src="https://www.google.com/maps/d/embed?mid=1TjrgYqympQvIw1yXliRJPGXY2Mg&z=16hl=en_US&ehbc=2E312F"  height="100%" width="100%"></iframe>
             </div>
             -->
-
-            <div id="map"></div>
-            <div id="instructions"></div>
+            
+            <div class="map" id="map">
+               <div class="instructions" id="instructions"></div>
+            </div>
+            
          </div>
       </div>
-       
-
-      
 
       <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
       <script nonmodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
@@ -150,19 +138,239 @@
 
          function Search() {
             var search = document.getElementById("search").value
-            if (search.toLowerCase() == "linder"){
+            if (search.toLowerCase() == "linder" || search.toLowerCase() == 'linder hall'){
                Linder();
             }
-            else if (search.toLowerCase() == 'baldwin'){
+            else if (search.toLowerCase() == 'baldwin' || search.toLowerCase() == 'baldwin hall'){
                Baldwin();
-            };
+            }
+            else if (search.toLowerCase() == 'langsam' || search.toLowerCase() == 'langsam library'){
+               Langsam();
+            }
+            else if (search.toLowerCase() == 'dabney' || search.toLowerCase() == 'dabney hall'){
+               Dabney();
+            }
+            else if (search.toLowerCase() == 'daniels' || search.toLowerCase() == 'daniels hall'){
+               Daniels();
+            }
+            else if (search.toLowerCase() == 'marian' || search.toLowerCase() == 'marian spencer'){
+               Marian();
+            }
+            else if (search.toLowerCase() == 'morgens' || search.toLowerCase() == 'morgens hall'){
+               Morgens();
+            }
+            else if (search.toLowerCase() == 'scioto' || search.toLowerCase() == 'scioto hall'){
+               Scioto();
+            }
+            else if (search.toLowerCase() == 'arts and sciences'){
+               Arts();
+            }
+            else if (search.toLowerCase() == 'baldwin' || search.toLowerCase() == 'baldwin hall'){
+               Baldwin();
+            }
+            else if (search.toLowerCase() == 'braunstein' || search.toLowerCase() == 'braustein hall'){
+               Braunstein();
+            }
+            else if (search.toLowerCase() == 'crosley' || search.toLowerCase() == 'crosley tower'){
+               Crosley();
+            }
+            else if (search.toLowerCase() == 'daap'){
+               DAAP();
+            }
+            else if (search.toLowerCase() == 'college of law'){
+               Law();
+            }
+            else if (search.toLowerCase() == 'linder' || search.toLowerCase() == 'linder hall'){
+               Lindner();
+            }
+            else if (search.toLowerCase() == 'mantei' || search.toLowerCase() == 'mantei center'){
+               Mantei();
+            }
+            else if (search.toLowerCase() == 'old chem'){
+               Old();
+            }
+            else if (search.toLowerCase() == 'rieveschl' || search.toLowerCase() == 'rieveschl hall'){
+               Rieveschl();
+            }
+            else if (search.toLowerCase() == 'rhodes' || search.toLowerCase() == 'rhodes hall'){
+               Rhodes();
+            }
+            else if (search.toLowerCase() == 'swift' || search.toLowerCase() == 'swift hall'){
+               Swift();
+            }
+            else if (search.toLowerCase() == 'aacrc'){
+               AACRC();
+            }
+            else if (search.toLowerCase() == 'campus rec center'){
+               Rec();
+            }
+            else if (search.toLowerCase() == 'fifth third arena'){
+               Fifth();
+            }
+            else if (search.toLowerCase() == 'french' || search.toLowerCase() == 'french hall'){
+               French();
+            }
+            else if (search.toLowerCase() == 'nippert stadium'){
+               Nippert();
+            }
+            else if (search.toLowerCase() == 'nippert west pavilion'){
+               NippertWest();
+            }
+            else if (search.toLowerCase() == 'steger' || search.toLowerCase() == 'steger student life center'){
+               Steger();
+            }
+            else if (search.toLowerCase() == 'tangeman' || search.toLowerCase() == 'tangeman university center'){
+               Tangeman();
+            }
+
          }
-         
          //
-         let value = document.getElementById("qqvbed-tJHJj-fmcmS");
-         console.log(value);
-         
-         function Linder() {
+         //
+         //building list -----------------------------------------
+         function Langsam() {
+            const features = map.queryRenderedFeatures(event.point, {
+               layers: ['campusbuildings']
+            });
+            if (!features.length) {
+               return;
+            }
+            const feature = features[21];
+
+            console.log(feature.properties.title);
+
+            const popup = new mapboxgl.Popup({ offset: [0, -15] })
+            .setLngLat(feature.geometry.coordinates)
+            .setHTML(
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            )
+            .addTo(map);
+         }
+
+         function Arts() {
+            const features = map.queryRenderedFeatures(event.point, {
+               layers: ['campusbuildings']
+            });
+            if (!features.length) {
+               return;
+            }
+            const feature = features[0];
+
+            const popup = new mapboxgl.Popup({ offset: [0, -15] })
+            .setLngLat(feature.geometry.coordinates)
+            .setHTML(
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            )
+            .addTo(map);
+         }
+         function Baldwin() {
+            const features = map.queryRenderedFeatures(event.point, {
+               layers: ['campusbuildings']
+            });
+            if (!features.length) {
+               return;
+            }
+            const feature = features[14];
+
+            console.log(feature.properties.title);
+
+            const popup = new mapboxgl.Popup({ offset: [0, -15] })
+            .setLngLat(feature.geometry.coordinates)
+            .setHTML(
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            )
+            .addTo(map);
+         }
+         function Dabney() {
+            const features = map.queryRenderedFeatures(event.point, {
+               layers: ['campusbuildings']
+            });
+            if (!features.length) {
+               return;
+            }
+            const feature = features[8];
+
+            console.log(feature.properties.title);
+
+            const popup = new mapboxgl.Popup({ offset: [0, -15] })
+            .setLngLat(feature.geometry.coordinates)
+            .setHTML(
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            )
+            .addTo(map);
+         }
+         function Daniels() {
+            const features = map.queryRenderedFeatures(event.point, {
+               layers: ['campusbuildings']
+            });
+            if (!features.length) {
+               return;
+            }
+            const feature = features[6];
+
+            console.log(feature.properties.title);
+
+            const popup = new mapboxgl.Popup({ offset: [0, -15] })
+            .setLngLat(feature.geometry.coordinates)
+            .setHTML(
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            )
+            .addTo(map);
+         }
+         function Marian() {
+            const features = map.queryRenderedFeatures(event.point, {
+               layers: ['campusbuildings']
+            });
+            if (!features.length) {
+               return;
+            }
+            const feature = features[19];
+
+            console.log(feature.properties.title);
+
+            const popup = new mapboxgl.Popup({ offset: [0, -15] })
+            .setLngLat(feature.geometry.coordinates)
+            .setHTML(
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            )
+            .addTo(map);
+         }
+         function Morgens() {
+            const features = map.queryRenderedFeatures(event.point, {
+               layers: ['campusbuildings']
+            });
+            if (!features.length) {
+               return;
+            }
+            const feature = features[25];
+
+            console.log(feature.properties.title);
+
+            const popup = new mapboxgl.Popup({ offset: [0, -15] })
+            .setLngLat(feature.geometry.coordinates)
+            .setHTML(
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            )
+            .addTo(map);
+         }
+         function Scioto() {
+            const features = map.queryRenderedFeatures(event.point, {
+               layers: ['campusbuildings']
+            });
+            if (!features.length) {
+               return;
+            }
+            const feature = features[22];
+
+            console.log(feature.properties.title);
+
+            const popup = new mapboxgl.Popup({ offset: [0, -15] })
+            .setLngLat(feature.geometry.coordinates)
+            .setHTML(
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            )
+            .addTo(map);
+         }
+         function Braunstein() {
             const features = map.queryRenderedFeatures(event.point, {
                layers: ['campusbuildings']
             });
@@ -177,17 +385,302 @@
             `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
             )
             .addTo(map);
-            console.log(feature.properties.title, feature.properties.description);
          }
-
-         function Baldwin() {
+         function Crosley() {
             const features = map.queryRenderedFeatures(event.point, {
                layers: ['campusbuildings']
             });
             if (!features.length) {
                return;
             }
-            const feature = features[0];
+            const feature = features[23];
+
+            console.log(feature.properties.title);
+
+            const popup = new mapboxgl.Popup({ offset: [0, -15] })
+            .setLngLat(feature.geometry.coordinates)
+            .setHTML(
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            )
+            .addTo(map);
+         }
+         function DAAP() {
+            const features = map.queryRenderedFeatures(event.point, {
+               layers: ['campusbuildings']
+            });
+            if (!features.length) {
+               return;
+            }
+            const feature = features[2];
+
+            const popup = new mapboxgl.Popup({ offset: [0, -15] })
+            .setLngLat(feature.geometry.coordinates)
+            .setHTML(
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            )
+            .addTo(map);
+         }
+         function Law() {
+            const features = map.queryRenderedFeatures(event.point, {
+               layers: ['campusbuildings']
+            });
+            if (!features.length) {
+               return;
+            }
+            const feature = features[24];
+
+            console.log(feature.properties.title);
+
+            const popup = new mapboxgl.Popup({ offset: [0, -15] })
+            .setLngLat(feature.geometry.coordinates)
+            .setHTML(
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            )
+            .addTo(map);
+         }
+         function Lindner() {
+            const features = map.queryRenderedFeatures(event.point, {
+               layers: ['campusbuildings']
+            });
+            if (!features.length) {
+               return;
+            }
+            const feature = features[18];
+
+            console.log(feature.properties.title);
+
+            const popup = new mapboxgl.Popup({ offset: [0, -15] })
+            .setLngLat(feature.geometry.coordinates)
+            .setHTML(
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            )
+            .addTo(map);
+         }
+         function Mantei() {
+            const features = map.queryRenderedFeatures(event.point, {
+               layers: ['campusbuildings']
+            });
+            if (!features.length) {
+               return;
+            }
+            const feature = features[17];
+
+            console.log(feature.properties.title);
+
+            const popup = new mapboxgl.Popup({ offset: [0, -15] })
+            .setLngLat(feature.geometry.coordinates)
+            .setHTML(
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            )
+            .addTo(map);
+         }
+         function Old() {
+            const features = map.queryRenderedFeatures(event.point, {
+               layers: ['campusbuildings']
+            });
+            if (!features.length) {
+               return;
+            }
+            const feature = features[16];
+
+            console.log(feature.properties.title);
+
+            const popup = new mapboxgl.Popup({ offset: [0, -15] })
+            .setLngLat(feature.geometry.coordinates)
+            .setHTML(
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            )
+            .addTo(map);
+         }
+         function Rieveschl() {
+            const features = map.queryRenderedFeatures(event.point, {
+               layers: ['campusbuildings']
+            });
+            if (!features.length) {
+               return;
+            }
+            const feature = features[20];
+
+            console.log(feature.properties.title);
+
+            const popup = new mapboxgl.Popup({ offset: [0, -15] })
+            .setLngLat(feature.geometry.coordinates)
+            .setHTML(
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            )
+            .addTo(map);
+         }
+         function Rhodes() {
+            const features = map.queryRenderedFeatures(event.point, {
+               layers: ['campusbuildings']
+            });
+            if (!features.length) {
+               return;
+            }
+            const feature = features[15];
+
+            console.log(feature.properties.title);
+
+            const popup = new mapboxgl.Popup({ offset: [0, -15] })
+            .setLngLat(feature.geometry.coordinates)
+            .setHTML(
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            )
+            .addTo(map);
+         }
+         function Swift() {
+            const features = map.queryRenderedFeatures(event.point, {
+               layers: ['campusbuildings']
+            });
+            if (!features.length) {
+               return;
+            }
+            const feature = features[12];
+
+            console.log(feature.properties.title);
+
+            const popup = new mapboxgl.Popup({ offset: [0, -15] })
+            .setLngLat(feature.geometry.coordinates)
+            .setHTML(
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            )
+            .addTo(map);
+         }
+
+         function AACRC() {
+            const features = map.queryRenderedFeatures(event.point, {
+               layers: ['campusbuildings']
+            });
+            if (!features.length) {
+               return;
+            }
+            const feature = features[3];
+
+            console.log(feature.properties.title);
+
+            const popup = new mapboxgl.Popup({ offset: [0, -15] })
+            .setLngLat(feature.geometry.coordinates)
+            .setHTML(
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            )
+            .addTo(map);
+         }
+         function Rec() {
+            const features = map.queryRenderedFeatures(event.point, {
+               layers: ['campusbuildings']
+            });
+            if (!features.length) {
+               return;
+            }
+            const feature = features[10];
+
+            console.log(feature.properties.title);
+
+            const popup = new mapboxgl.Popup({ offset: [0, -15] })
+            .setLngLat(feature.geometry.coordinates)
+            .setHTML(
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            )
+            .addTo(map);
+         }
+         function Fifth() {
+            const features = map.queryRenderedFeatures(event.point, {
+               layers: ['campusbuildings']
+            });
+            if (!features.length) {
+               return;
+            }
+            const feature = features[5];
+
+            console.log(feature.properties.title);
+
+            const popup = new mapboxgl.Popup({ offset: [0, -15] })
+            .setLngLat(feature.geometry.coordinates)
+            .setHTML(
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            )
+            .addTo(map);
+         }
+         function French() {
+            const features = map.queryRenderedFeatures(event.point, {
+               layers: ['campusbuildings']
+            });
+            if (!features.length) {
+               return;
+            }
+            const feature = features[13];
+
+            console.log(feature.properties.title);
+
+            const popup = new mapboxgl.Popup({ offset: [0, -15] })
+            .setLngLat(feature.geometry.coordinates)
+            .setHTML(
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            )
+            .addTo(map);
+         }
+         function Nippert() {
+            const features = map.queryRenderedFeatures(event.point, {
+               layers: ['campusbuildings']
+            });
+            if (!features.length) {
+               return;
+            }
+            const feature = features[4];
+
+            const popup = new mapboxgl.Popup({ offset: [0, -15] })
+            .setLngLat(feature.geometry.coordinates)
+            .setHTML(
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            )
+            .addTo(map);
+         }
+         function NippertWest() {
+            const features = map.queryRenderedFeatures(event.point, {
+               layers: ['campusbuildings']
+            });
+            if (!features.length) {
+               return;
+            }
+            const feature = features[7];
+
+            console.log(feature.properties.title);
+
+            const popup = new mapboxgl.Popup({ offset: [0, -15] })
+            .setLngLat(feature.geometry.coordinates)
+            .setHTML(
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            )
+            .addTo(map);
+         }
+         function Steger() {
+            const features = map.queryRenderedFeatures(event.point, {
+               layers: ['campusbuildings']
+            });
+            if (!features.length) {
+               return;
+            }
+            const feature = features[11];
+
+            console.log(feature.properties.title);
+
+            const popup = new mapboxgl.Popup({ offset: [0, -15] })
+            .setLngLat(feature.geometry.coordinates)
+            .setHTML(
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            )
+            .addTo(map);
+         }
+         function Tangeman() {
+            const features = map.queryRenderedFeatures(event.point, {
+               layers: ['campusbuildings']
+            });
+            if (!features.length) {
+               return;
+            }
+            const feature = features[9];
+
+            console.log(feature.properties.title);
 
             const popup = new mapboxgl.Popup({ offset: [0, -15] })
             .setLngLat(feature.geometry.coordinates)
