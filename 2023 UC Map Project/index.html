@@ -93,35 +93,36 @@
       
       <script>
          mapboxgl.accessToken = 'pk.eyJ1Ijoic2hhbmVoaWNrbWFuIiwiYSI6ImNrMXRsOXpwOTBzMm0zYmxtY3JmcjdmMjEifQ.dbva3v7IKJoQ_KB1j7re0w';
-      const map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/shanehickman/cljvqjtfm01lk01pdgt4shshy',
-        center: [-84.515, 39.1329],
-        zoom: 15
-      });
+         const map = new mapboxgl.Map({
+         container: 'map',
+         style: 'mapbox://styles/shanehickman/cljvqjtfm01lk01pdgt4shshy',
+         center: [-84.515, 39.1329],
+         zoom: 15
+         });
 
-      map.on('click', (event) => {
-        const features = map.queryRenderedFeatures(event.point, {
-          layers: ['campusbuildings']
-        });
-        if (!features.length) {
-          return;
-        }
-        const feature = features[0];
+         map.on('click', (event) => {
+         const features = map.queryRenderedFeatures(event.point, {
+            layers: ['campusbuildings']
+         });
+         if (!features.length) {
+            return;
+         }
+         const feature = features[0];
 
-        const popup = new mapboxgl.Popup({ offset: [0, -15] })
-          .setLngLat(feature.geometry.coordinates)
-          .setHTML(
+            const popup = new mapboxgl.Popup({ offset: [0, -15] })
+            .setLngLat(feature.geometry.coordinates)
+            .setHTML(
             `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
-          )
-          .addTo(map);
-      });
+            )
+            .addTo(map);
+         });
 
 
          //Menu Toggle
          let toggle = document.querySelector('.toggle');
          let navigation = document.querySelector('.navigation');
          let main = document.querySelector('.main');
+         let lists = document.querySelector('.lists');
 
          toggle.onclick = function(){
             navigation.classList.toggle('active');
@@ -158,11 +159,55 @@
          //      window.location = "index.html"
          //   }
          //}
+
+         function Search() {
+            var search = document.getElementById("search").value
+            if (search.toLowerCase() == "linder"){
+               Linder();
+            }
+            else if (search.toLowerCase() == 'baldwin'){
+               Baldwin();
+            };
+         }
          
          //
          let value = document.getElementById("qqvbed-tJHJj-fmcmS");
          console.log(value);
          
+         function Linder() {
+            const features = map.queryRenderedFeatures(event.point, {
+               layers: ['campusbuildings']
+            });
+            if (!features.length) {
+               return;
+            }
+            const feature = features[1];
+
+            const popup = new mapboxgl.Popup({ offset: [0, -15] })
+            .setLngLat(feature.geometry.coordinates)
+            .setHTML(
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            )
+            .addTo(map);
+            console.log(feature.properties.title, feature.properties.description);
+         }
+
+         function Baldwin() {
+            const features = map.queryRenderedFeatures(event.point, {
+               layers: ['campusbuildings']
+            });
+            if (!features.length) {
+               return;
+            }
+            const feature = features[0];
+
+            const popup = new mapboxgl.Popup({ offset: [0, -15] })
+            .setLngLat(feature.geometry.coordinates)
+            .setHTML(
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            )
+            .addTo(map);
+         }
 
       </script>
    </body>
