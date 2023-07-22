@@ -5,6 +5,8 @@
       <title>UC West Map</title>
       <link rel="stylesheet" type="text/css" href="styles.css">
       <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
       <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
       <style>
@@ -15,13 +17,17 @@
    <body>
       <header>
          <h1>Bearcat Positioning System</h1>
+         <div class="howToButton">
+            <p>
+               <a href="how_to.html"><button style="font-size:24px"><i class="fa fa-question-circle"></i></button></a>
+            </p>
+         </div>
          <div class="search">
             <label>
                 <input id="search" type="text" placeholder="Search Here" onchange="Search()">
                 <ion-icon name="search-outline"></ion-icon>
             </label>
         </div>
-        
       </header>
       <div class="container">
          <div class="navigation">

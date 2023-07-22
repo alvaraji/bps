@@ -30,6 +30,29 @@ header {
    background-color: #222;
 }
 
+.howToButton
+{
+   position: absolute;
+   left: 5%;
+   top: 35%;
+}
+
+.instructions{
+   position: relative;
+   top: 20%;
+   left:0%
+}
+
+.currentStep{
+   margin-top: 10px;
+   position: relative;
+}
+
+.currentInstruction{
+   margin-top: 20px;
+   position: relative;
+}
+
 .search
 {
    position: absolute;
