@@ -28,7 +28,7 @@
                 <ion-icon name="search-outline"></ion-icon>
             </label>
         </div>
-        <button onclick = "baldwinSix()" > Click Me </button>
+        
       </header>
      
       <div class="container">
@@ -47,6 +47,7 @@
                <h3>Lecture Halls</h3>
                <li onclick="Arts()">Arts and Sciences</li>
                <li onclick="Baldwin()">Baldwin Hall</li>
+               <button onclick = "baldwinSix()" > Floor Six </button>
                <li onclick="Braunstein()">Braunstein Hall</li>
                <li onclick="Crosley()">Crosley Tower</li>
                <li onclick="DAAP()">DAAP</li>
@@ -225,6 +226,11 @@
             else if (search.toLowerCase() == 'tangeman' || search.toLowerCase() == 'tangeman university center'){
                Tangeman();
             }
+            else{
+               // add logic to separate number from building and search for respective room
+               return;
+            }
+
 
          }
          //
@@ -692,15 +698,25 @@
             )
             .addTo(map);
          }
+
+         map.on('load', () => {
+            map.setLayoutProperty('baldwinrooms600', 'visibility', 'none');
+            map.setLayoutProperty('baldwin600labels', 'visibility', 'none');
+
+
+         })
          
          function baldwinSix(){
             var vis = map.getLayoutProperty('baldwinrooms600', 'visibility');
             if (vis === 'visible'){
                map.setLayoutProperty('baldwinrooms600', 'visibility', 'none');
+               map.setLayoutProperty('baldwin600labels', 'visibility', 'none');
             }
             else{
                map.setLayoutProperty('baldwinrooms600', 'visibility', 'visible');
-            } 
+               map.setLayoutProperty('baldwin600labels', 'visibility', 'visible');
+            }
+             
          }
 
          //Adds button to get user location
