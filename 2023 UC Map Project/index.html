@@ -28,7 +28,9 @@
                 <ion-icon name="search-outline"></ion-icon>
             </label>
         </div>
+        <button onclick = "baldwinSix()" > Click Me </button>
       </header>
+     
       <div class="container">
          <div class="navigation">
             <h2>Buildings</h2>
@@ -106,7 +108,7 @@
             .addTo(map);
          });
 
-
+         
          //Menu Toggle
          let toggle = document.querySelector('.toggle');
          let navigation = document.querySelector('.navigation');
@@ -136,7 +138,7 @@
          function Buildings(){
                window.location = "buildings.html"
          }
-
+         
          function Search() {
             var search = document.getElementById("search").value
             if (search.toLowerCase() == "linder" || search.toLowerCase() == 'linder hall'){
@@ -689,6 +691,16 @@
             `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
             )
             .addTo(map);
+         }
+         
+         function baldwinSix(){
+            var vis = map.getLayoutProperty('baldwinrooms600', 'visibility');
+            if (vis === 'visible'){
+               map.setLayoutProperty('baldwinrooms600', 'visibility', 'none');
+            }
+            else{
+               map.setLayoutProperty('baldwinrooms600', 'visibility', 'visible');
+            } 
          }
 
          //Adds button to get user location
