@@ -28,45 +28,56 @@
                 <ion-icon name="search-outline"></ion-icon>
             </label>
         </div>
-        
       </header>
      
       <div class="container">
          <div class="navigation">
             <h2>Buildings</h2>
             <ul class="lists">
-               <h3>Libraries</h3>
-               <li onclick="Langsam()">Langsam Library</li>
+               <button type="button" class="collapsible"><h3>Libraries</h3></button>
+               <div class="content">
+                  <li onclick="Langsam()">Langsam Library</li>
+               </div>
+               
+               <button type="button" class="collapsible"><h3>Residence Halls</h3></button>
+               <div class="content">
+                  <li onclick="Dabney()">Dabney Hall</li>
+                  <li onclick="Daniels()">Daniels Hall</li>
+                  <li onclick="Marian()">Marian Spencer</li>
+                  <li onclick="Morgens()">Morgens Hall</li>
+                  <li onclick="Scioto()">Scioto Hall</li>
+               </div>
 
-               <h3>Residence Halls</h3>
-               <li onclick="Dabney()">Dabney Hall</li>
-               <li onclick="Daniels()">Daniels Hall</li>
-               <li onclick="Marian()">Marian Spencer</li>
-               <li onclick="Morgens()">Morgens Hall</li>
-               <li onclick="Scioto()">Scioto Hall</li>
-               <h3>Lecture Halls</h3>
-               <li onclick="Arts()">Arts and Sciences</li>
-               <li onclick="Baldwin()">Baldwin Hall</li>
-               <button onclick = "baldwinSix()" > Floor Six </button>
-               <li onclick="Braunstein()">Braunstein Hall</li>
-               <li onclick="Crosley()">Crosley Tower</li>
-               <li onclick="DAAP()">DAAP</li>
-               <li onclick="Law()">College of Law</li>
-               <li onclick="Lindner()">Lindner Hall</li>
-               <li onclick="Mantei()">Mantei Center</li>
-               <li onclick="Old()">Old Chem</li>
-               <li onclick="Rieveschl()">Rieveschl Hall</li>
-               <li onclick="Rhodes()">Rhodes Hall</li>
-               <li onclick="Swift()">Swift Hall</li>
-               <h3>Other</h3>
-               <li onclick="AACRC()">AACRC</li>
-               <li onclick="Rec()">Campus Rec Center</li>
-               <li onclick="Fifth()">Fifth Third Arena</li>
-               <li onclick="French()">French Hall</li>
-               <li onclick="Nippert()">Nippert Stadium</li>
-               <li onclick="NippertWest()">Nippert West Pavilion</li>
-               <li onclick="Steger()">Steger Student Life Center</li>
-               <li onclick="Tangeman()">Tangeman University Center</li>
+               <button type="button" class="collapsible"><h3>Lecture Halls</h3></button>
+               <div class="content">
+                  <li onclick="Arts()">Arts and Sciences</li>
+                  <button type="button" class="collapsible"><li onclick="Baldwin()">Baldwin Hall</li></button>
+                  <div class="content">
+                     <button onclick = "baldwinSix()" > Click Me </button>
+                  </div>
+                  <li onclick="Braunstein()">Braunstein Hall</li>
+                  <li onclick="Crosley()">Crosley Tower</li>
+                  <li onclick="DAAP()">DAAP</li>
+                  <li onclick="Law()">College of Law</li>
+                  <li onclick="Lindner()">Lindner Hall</li>
+                  <li onclick="Mantei()">Mantei Center</li>
+                  <li onclick="Old()">Old Chem</li>
+                  <li onclick="Rieveschl()">Rieveschl Hall</li>
+                  <li onclick="Rhodes()">Rhodes Hall</li>
+                  <li onclick="Swift()">Swift Hall</li>
+               </div>
+
+               <button type="button" class="collapsible"><h3>Other</h3></button>
+               <div class="content">
+                   <li onclick="AACRC()">AACRC</li>
+                  <li onclick="Rec()">Campus Rec Center</li>
+                  <li onclick="Fifth()">Fifth Third Arena</li>
+                  <li onclick="French()">French Hall</li>
+                  <li onclick="Nippert()">Nippert Stadium</li>
+                  <li onclick="NippertWest()">Nippert West Pavilion</li>
+                  <li onclick="Steger()">Steger Student Life Center</li>
+                  <li onclick="Tangeman()">Tangeman University Center</li>
+               </div>              
             </ul>
          </div>
          <div class="main">
@@ -83,6 +94,23 @@
       <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
       <script nonmodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
       
+      <script>
+         var coll = document.getElementsByClassName("collapsible");
+         var i;
+
+         for (i = 0; i < coll.length; i++) {
+         coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+               content.style.display = "none";
+            } else {
+               content.style.display = "block";
+            }
+         });
+         }
+      </script>
+
       <script>
          mapboxgl.accessToken = 'pk.eyJ1Ijoic2hhbmVoaWNrbWFuIiwiYSI6ImNrMXRsOXpwOTBzMm0zYmxtY3JmcjdmMjEifQ.dbva3v7IKJoQ_KB1j7re0w';
          const map = new mapboxgl.Map({
