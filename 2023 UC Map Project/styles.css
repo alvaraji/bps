@@ -37,7 +37,7 @@ header {
    top: 35%;
 }
 
-.instructions{
+.instruction{
    position: relative;
    top: 20%;
    left:0%
@@ -124,6 +124,29 @@ header {
    padding: 10px 0 5px 0;
    font-size: 110%;
    left: -10px;
+}
+
+.collapsible {
+  background-color:var(--red);
+  color: var(--black1);
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: #b61031;
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: var(--red);
 }
 
 .navigation ul
