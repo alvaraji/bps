@@ -172,7 +172,7 @@
          
          function Search() {
             var search = document.getElementById("search").value
-            if (search.toLowerCase() == "linder" || search.toLowerCase() == 'linder hall'){
+            if (search.toLowerCase() == "lindner" || search.toLowerCase() == 'lindner hall'){
                Linder();
             }
             else if (search.toLowerCase() == 'baldwin' || search.toLowerCase() == 'baldwin hall'){
@@ -276,27 +276,28 @@
                   if(parseInt(splitSearch[1]) > 700 && parseInt(splitSearch[1]) < 800){
                      baldwinSeven()
                      // for loop to go through the floor - need to continue to debug.
-                     const features = map.queryRenderedFeatures(event.point, {
-                        layers: ['baldwin700labels']
+                     const features = map.querySourceFeatures('composite', {
+                        'sourceLayer': 'baldwin700labels'
                      });
-                     alert(features.length);
-                     if (!features.length) {
-                        return;
-                     }
+                     
+                     let acpt = false;
                      let i = 0;
-                    
+                     let feature = null;
                      while (i < features.length){
                         if (features[i].properties.text == parseInt(splitSearch[1])){
-                           const feature = features[i];
-                           let acpt = true;
+                           feature = features[i];
+                           acpt = true;
                            break;
-                           i++;
+
+                           
                            
                         }
-                        
+                        i++;
+
                      }
-                     
-                     if (acpt){
+
+                     if (acpt == true){
+
                         console.log(feature.properties.text);
 
                         const popup = new mapboxgl.Popup({ offset: [0, -15] })
@@ -311,23 +312,22 @@
                   else if (parseInt(splitSearch[1]) > 600 && parseInt(splitSearch[1]) < 700){
                      baldwinSix()
                      // for loop to go through the floor
-                     const features = map.queryRenderedFeatures(event.point, {
-                        layers: ['baldwin600labels']
+                     const features = map.querySourceFeatures('composite', {
+                        'sourceLayer': 'baldwin600labels'
                      });
-                     if (!features.length) {
-                        return;
-                     }
+                     let acpt = false;
                      let i = 0;
+                     let feature = null;
                      while (i < features.length){
                         if (features[i] == parseInt(splitSearch[1])){
-                           const feature = features[i];
-                           let acpt = true;
+                           feature = features[i];
+                           acpt = true;
                            break;
                         }
                         
                      }
                      
-                     if (acpt){
+                     if (acpt == true){
                         console.log(feature.properties.text);
 
                         const popup = new mapboxgl.Popup({ offset: [0, -15] })
@@ -356,6 +356,7 @@
             if (!features.length) {
                return;
             }
+   
             const feature = features[21];
 
             console.log(feature.properties.title);
