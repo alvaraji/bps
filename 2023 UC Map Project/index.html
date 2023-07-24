@@ -256,9 +256,92 @@
             else if (search.toLowerCase() == 'tangeman' || search.toLowerCase() == 'tangeman university center'){
                Tangeman();
             }
-            else{
-               // add logic to separate number from building and search for respective room
-               return;
+            else if(search.toLowerCase().includes('baldwin ')){
+
+               const splitSearch = search.split(" ");
+               
+               if (splitSearch[1] == 'Library'){
+                  baldwinEight();
+                  // also bring up library pop-up
+               }
+               else if(splitSearch[1] == '860A'){
+                  baldwinEight();
+                  //also bring up 860A pop-up
+               }
+               else if(splitSearch[1] == '860B'){
+                  baldwinEight();
+                  //also bring up 860B pop-up
+               }
+               else{
+                  if(parseInt(splitSearch[1]) > 700 && parseInt(splitSearch[1]) < 800){
+                     baldwinSeven()
+                     // for loop to go through the floor - need to continue to debug.
+                     const features = map.queryRenderedFeatures(event.point, {
+                        layers: ['baldwin700labels']
+                     });
+                     alert(features.length);
+                     if (!features.length) {
+                        return;
+                     }
+                     let i = 0;
+                    
+                     while (i < features.length){
+                        if (features[i].properties.text == parseInt(splitSearch[1])){
+                           const feature = features[i];
+                           let acpt = true;
+                           break;
+                           i++;
+                           
+                        }
+                        
+                     }
+                     
+                     if (acpt){
+                        console.log(feature.properties.text);
+
+                        const popup = new mapboxgl.Popup({ offset: [0, -15] })
+                        .setLngLat(feature.geometry.coordinates)
+                        .setHTML(
+                        `<h3>${feature.properties.text}}</p>`
+                        )
+                        .addTo(map);
+                     }
+                     
+                  }
+                  else if (parseInt(splitSearch[1]) > 600 && parseInt(splitSearch[1]) < 700){
+                     baldwinSix()
+                     // for loop to go through the floor
+                     const features = map.queryRenderedFeatures(event.point, {
+                        layers: ['baldwin600labels']
+                     });
+                     if (!features.length) {
+                        return;
+                     }
+                     let i = 0;
+                     while (i < features.length){
+                        if (features[i] == parseInt(splitSearch[1])){
+                           const feature = features[i];
+                           let acpt = true;
+                           break;
+                        }
+                        
+                     }
+                     
+                     if (acpt){
+                        console.log(feature.properties.text);
+
+                        const popup = new mapboxgl.Popup({ offset: [0, -15] })
+                        .setLngLat(feature.geometry.coordinates)
+                        .setHTML(
+                        `<h3>${feature.properties.text}}</p>`
+                        )
+                        .addTo(map);
+                     }
+                     
+
+                  }
+               }
+
             }
 
 
