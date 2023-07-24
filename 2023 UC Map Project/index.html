@@ -311,7 +311,7 @@
                   }
                   else if (parseInt(splitSearch[1]) > 600 && parseInt(splitSearch[1]) < 700){
                      baldwinSix()
-                     // for loop to go through the floor
+
                      const features = map.querySourceFeatures('composite', {
                         'sourceLayer': 'baldwin600labels'
                      });
@@ -324,7 +324,7 @@
                            acpt = true;
                            break;
                         }
-                        
+                        i++;
                      }
                      
                      if (acpt == true){
