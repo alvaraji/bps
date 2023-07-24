@@ -55,6 +55,7 @@
                   <div class="content">
                      <button onclick = "baldwinSix()" > 600 Level </button>
                      <button onclick = "baldwinSeven()" > 700 Level </button>
+                     <button onclick = "baldwinEight()" > 800 Level </button>
                   </div>
                   <li onclick="Braunstein()">Braunstein Hall</li>
                   <li onclick="Crosley()">Crosley Tower</li>
@@ -733,6 +734,8 @@
             map.setLayoutProperty('baldwin600labels', 'visibility', 'none');
             map.setLayoutProperty('baldwinrooms700', 'visibility', 'none');
             map.setLayoutProperty('baldwin700labels', 'visibility', 'none');
+            map.setLayoutProperty('baldwinrooms800', 'visibility', 'none');
+            map.setLayoutProperty('baldwin800labels', 'visibility', 'none');
 
 
          })
@@ -748,6 +751,8 @@
                map.setLayoutProperty('baldwin600labels', 'visibility', 'visible');
                map.setLayoutProperty('baldwinrooms700', 'visibility', 'none');
                map.setLayoutProperty('baldwin700labels', 'visibility', 'none');
+               map.setLayoutProperty('baldwinrooms800', 'visibility', 'none');
+               map.setLayoutProperty('baldwin800labels', 'visibility', 'none');
             }
              
          }
@@ -762,6 +767,24 @@
                map.setLayoutProperty('baldwin700labels', 'visibility', 'visible');
                map.setLayoutProperty('baldwinrooms600', 'visibility', 'none');
                map.setLayoutProperty('baldwin600labels', 'visibility', 'none');
+               map.setLayoutProperty('baldwinrooms800', 'visibility', 'none');
+               map.setLayoutProperty('baldwin800labels', 'visibility', 'none');
+            }
+             
+         }
+         function baldwinEight(){
+            var vis = map.getLayoutProperty('baldwinrooms800', 'visibility');
+            if (vis === 'visible'){
+               map.setLayoutProperty('baldwinrooms800', 'visibility', 'none');
+               map.setLayoutProperty('baldwin800labels', 'visibility', 'none');
+            }
+            else{
+               map.setLayoutProperty('baldwinrooms800', 'visibility', 'visible');
+               map.setLayoutProperty('baldwin800labels', 'visibility', 'visible');
+               map.setLayoutProperty('baldwinrooms600', 'visibility', 'none');
+               map.setLayoutProperty('baldwin600labels', 'visibility', 'none');
+               map.setLayoutProperty('baldwinrooms700', 'visibility', 'none');
+               map.setLayoutProperty('baldwin700labels', 'visibility', 'none');
             }
              
          }
