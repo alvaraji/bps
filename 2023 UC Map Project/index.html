@@ -53,7 +53,8 @@
                   <li onclick="Arts()">Arts and Sciences</li>
                   <button type="button" class="collapsible"><li onclick="Baldwin()">Baldwin Hall</li></button>
                   <div class="content">
-                     <button onclick = "baldwinSix()" > Click Me </button>
+                     <button onclick = "baldwinSix()" > 600 Level </button>
+                     <button onclick = "baldwinSeven()" > 700 Level </button>
                   </div>
                   <li onclick="Braunstein()">Braunstein Hall</li>
                   <li onclick="Crosley()">Crosley Tower</li>
@@ -730,6 +731,8 @@
          map.on('load', () => {
             map.setLayoutProperty('baldwinrooms600', 'visibility', 'none');
             map.setLayoutProperty('baldwin600labels', 'visibility', 'none');
+            map.setLayoutProperty('baldwinrooms700', 'visibility', 'none');
+            map.setLayoutProperty('baldwin700labels', 'visibility', 'none');
 
 
          })
@@ -743,6 +746,22 @@
             else{
                map.setLayoutProperty('baldwinrooms600', 'visibility', 'visible');
                map.setLayoutProperty('baldwin600labels', 'visibility', 'visible');
+               map.setLayoutProperty('baldwinrooms700', 'visibility', 'none');
+               map.setLayoutProperty('baldwin700labels', 'visibility', 'none');
+            }
+             
+         }
+         function baldwinSeven(){
+            var vis = map.getLayoutProperty('baldwinrooms700', 'visibility');
+            if (vis === 'visible'){
+               map.setLayoutProperty('baldwinrooms700', 'visibility', 'none');
+               map.setLayoutProperty('baldwin700labels', 'visibility', 'none');
+            }
+            else{
+               map.setLayoutProperty('baldwinrooms700', 'visibility', 'visible');
+               map.setLayoutProperty('baldwin700labels', 'visibility', 'visible');
+               map.setLayoutProperty('baldwinrooms600', 'visibility', 'none');
+               map.setLayoutProperty('baldwin600labels', 'visibility', 'none');
             }
              
          }
