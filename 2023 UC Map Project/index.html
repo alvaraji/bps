@@ -263,14 +263,78 @@
                if (splitSearch[1] == 'Library'){
                   baldwinEight();
                   // also bring up library pop-up
+                  const features = map.querySourceFeatures('composite', {
+                        'sourceLayer': 'baldwin800labels'
+                     });
+
+                     feature = features[0]
+                     console.log(feature.properties.text);
+
+                     const popup = new mapboxgl.Popup({ offset: [0, -15] })
+                     .setLngLat(feature.geometry.coordinates)
+                     .setHTML(
+                     `<h3>${feature.properties.text}</p>`
+                     )
+                     .addTo(map);
+   
+
                }
                else if(splitSearch[1] == '860A'){
                   baldwinEight();
                   //also bring up 860A pop-up
+                  const features = map.querySourceFeatures('composite', {
+                        'sourceLayer': 'baldwin800labels'
+                     });
+                     
+                     feature = features[1]
+
+
+                     console.log(feature.properties.text);
+
+                     const popup = new mapboxgl.Popup({ offset: [0, -15] })
+                     .setLngLat(feature.geometry.coordinates)
+                     .setHTML(
+                     `<h3>${feature.properties.text}</p>`
+                     )
+                     .addTo(map);
                }
                else if(splitSearch[1] == '860B'){
                   baldwinEight();
                   //also bring up 860B pop-up
+                  const features = map.querySourceFeatures('composite', {
+                        'sourceLayer': 'baldwin800labels'
+                     });
+                     
+                     feature = features[2]
+
+
+                     console.log(feature.properties.text);
+
+                     const popup = new mapboxgl.Popup({ offset: [0, -15] })
+                     .setLngLat(feature.geometry.coordinates)
+                     .setHTML(
+                     `<h3>${feature.properties.text}</p>`
+                     )
+                     .addTo(map);
+               }
+               else if(splitSearch[1] == '860' || splitSearch[1] == 860){
+                  baldwinEight();
+                  //also bring up 860B pop-up
+                  const features = map.querySourceFeatures('composite', {
+                        'sourceLayer': 'baldwin800labels'
+                     });
+                     
+                     feature = features[3]
+
+
+                     console.log(feature.properties.text);
+
+                     const popup = new mapboxgl.Popup({ offset: [0, -15] })
+                     .setLngLat(feature.geometry.coordinates)
+                     .setHTML(
+                     `<h3>${feature.properties.text}</p>`
+                     )
+                     .addTo(map);
                }
                else{
                   if(parseInt(splitSearch[1]) > 700 && parseInt(splitSearch[1]) < 800){
@@ -303,7 +367,7 @@
                         const popup = new mapboxgl.Popup({ offset: [0, -15] })
                         .setLngLat(feature.geometry.coordinates)
                         .setHTML(
-                        `<h3>${feature.properties.text}}</p>`
+                        `<h3>${feature.properties.text}</p>`
                         )
                         .addTo(map);
                      }
@@ -335,7 +399,7 @@
                         const popup = new mapboxgl.Popup({ offset: [0, -15] })
                         .setLngLat(feature.geometry.coordinates)
                         .setHTML(
-                        `<h3>${feature.properties.text}}</p>`
+                        `<h3>${feature.properties.text}</p>`
                         )
                         .addTo(map);
                      }
@@ -344,6 +408,9 @@
                   }
                }
 
+            }
+            else if (search.toLowerCase().includes('rhodes ')){
+               
             }
 
 
