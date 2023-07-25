@@ -315,18 +315,20 @@
                      const features = map.querySourceFeatures('composite', {
                         'sourceLayer': 'baldwin600labels'
                      });
+
+
                      let acpt = false;
                      let i = 0;
                      let feature = null;
                      while (i < features.length){
-                        if (features[i] == parseInt(splitSearch[1])){
+  
+                        if (features[i].properties.text == parseInt(splitSearch[1])){
                            feature = features[i];
                            acpt = true;
                            break;
                         }
                         i++;
                      }
-                     
                      if (acpt == true){
                         console.log(feature.properties.text);
 
