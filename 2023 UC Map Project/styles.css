@@ -140,6 +140,7 @@ header {
 
 .active, .collapsible:hover {
   background-color: #b61031;
+  width: 70%;
 }
 
 .content {
@@ -185,6 +186,8 @@ header {
 {
    background: var(--white);
    padding: 5px;
+   border-radius: 20px;
+   width: fit-content;
 }
 
 /* curve outside */

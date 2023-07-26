@@ -90,7 +90,7 @@
             <div class="toggle">
                <ion-icon name="menu-outline"></ion-icon>
             </div>
-            <div class="map" id="map">
+            <div class="map" id="map" style="width: 120%;">
                <div class="instructions" id="instructions"></div>
             </div>
             
@@ -122,7 +122,7 @@
          const map = new mapboxgl.Map({
          container: 'map',
          style: 'mapbox://styles/shanehickman/cljvqjtfm01lk01pdgt4shshy',
-         center: [-84.515, 39.1329],
+         center: [-84.51272040140698, 39.132154125261735],
          zoom: 15
          });
          
@@ -138,11 +138,11 @@
             const popup = new mapboxgl.Popup({ offset: [0, -15] })
             .setLngLat(feature.geometry.coordinates)
             .setHTML(
-            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p><button onclick="pleasework()" type="button">Start Route</button>`
             )
             .addTo(map);
          });
-
+         
          
          //Menu Toggle
          let toggle = document.querySelector('.toggle');
@@ -1060,50 +1060,51 @@
                showUserHeading: true //this option shows on the map the direction the user is heading; Don't know if we need this since we'll have a route?
             })
          );
-         map.on('click', (event) => {
-            const coords = Object.keys(event.lngLat).map((key) => event.lngLat[key]);
-            const end = {
-               type: 'FeatureCollection',
-               features: [
-                  {
-                  type: 'Feature',
-                  properties: {},
-                  geometry: {
-                     type: 'Point',
-                     coordinates: coords
-                  }
-                  }
-               ]
-            };
-            if (map.getLayer('end')) {
-               map.getSource('end').setData(end);
-            } else {
-               map.addLayer({
-                  id: 'end',
-                  type: 'circle',
-                  source: {
-                  type: 'geojson',
-                  data: {
-                     type: 'FeatureCollection',
-                     features: [
-                        {
-                        type: 'Feature',
-                        properties: {},
-                        geometry: {
-                           type: 'Point',
-                           coordinates: coords
-                        }
-                        }
-                     ]
-                  }
-                  },
-                  paint: {
-                  'circle-radius': 10,
-                  'circle-color': '#f30'
-                  }
-               });
-            }
-            getRoute(coords);
+         //function pleasework() {
+            map.on('click', (event) => {
+               const coords = Object.keys(event.lngLat).map((key) => event.lngLat[key]);
+               const end = {
+                  type: 'FeatureCollection',
+                  features: [
+                     {
+                     type: 'Feature',
+                     properties: {},
+                     geometry: {
+                        type: 'Point',
+                        coordinates: coords
+                     }
+                     }
+                  ]
+               };
+               if (map.getLayer('end')) {
+                  map.getSource('end').setData(end);
+               } else {
+                  map.addLayer({
+                     id: 'end',
+                     type: 'circle',
+                     source: {
+                     type: 'geojson',
+                     data: {
+                        type: 'FeatureCollection',
+                        features: [
+                           {
+                           type: 'Feature',
+                           properties: {},
+                           geometry: {
+                              type: 'Point',
+                              coordinates: coords
+                           }
+                           }
+                        ]
+                     }
+                     },
+                     paint: {
+                     'circle-radius': 10,
+                     'circle-color': '#f30'
+                     }
+                  });
+               }
+               getRoute(coords);
             });
             
          async function getRoute(end){
@@ -1165,6 +1166,7 @@
          function coordsNotFound(err){
             console.log(err); //more error handling can be done here; maybe a popup with message?
          }
+      //}
 
       </script>
    </body>
