@@ -415,8 +415,72 @@
 
             }
             else if (search.toLowerCase().includes('rhodes ')){
+               const splitSearch = search.split(" ");
+               
+               if (parseInt(splitSearch[1]) >= 600 && parseInt(splitSearch[1]) < 700){
+                  RhodesSix();
+                  const features = map.querySourceFeatures('composite', {
+                        'sourceLayer': 'rhodes600labels'
+                  });
+                  let acpt = false;
+                     let i = 0;
+                     let feature = null;
+                     while (i < features.length){
+  
+                        if (features[i].properties.text == parseInt(splitSearch[1])){
+                           feature = features[i];
+                           acpt = true;
+                           break;
+                        }
+                        i++;
+                     }
+                     if (acpt == true){
+                        console.log(feature.properties.text);
+
+                        const popup = new mapboxgl.Popup({ offset: [0, -15] })
+                        .setLngLat(feature.geometry.coordinates)
+                        .setHTML(
+                        `<h3>${feature.properties.text}</p>`
+                        )
+                        .addTo(map);
+                     }
+                     
+
+               }
+               else if (parseInt(splitSearch[1]) >= 700 && parseInt(splitSearch[1]) < 800){
+                  RhodesSeven();
+                  const features = map.querySourceFeatures('composite', {
+                        'sourceLayer': 'rhodes700labels'
+                  });
+                  let acpt = false;
+                     let i = 0;
+                     let feature = null;
+                     while (i < features.length){
+  
+                        if (features[i].properties.text == parseInt(splitSearch[1])){
+                           feature = features[i];
+                           acpt = true;
+                           break;
+                        }
+                        i++;
+                     }
+                     if (acpt == true){
+                        console.log(feature.properties.text);
+
+                        const popup = new mapboxgl.Popup({ offset: [0, -15] })
+                        .setLngLat(feature.geometry.coordinates)
+                        .setHTML(
+                        `<h3>${feature.properties.text}</p>`
+                        )
+                        .addTo(map);
+                     }
+
+
+               }
+
 
             }
+            
 
 
          }
@@ -949,6 +1013,7 @@
              
          }
          function RhodesSix(){
+            
             var vis = map.getLayoutProperty('rhodesrooms600', 'visibility');
             if (vis === 'visible'){
                map.setLayoutProperty('rhodesrooms600', 'visibility', 'none');
@@ -956,8 +1021,28 @@
                map.setLayoutProperty('rhodes600rr', 'visibility', 'none');
             }
             else{
+               map.setLayoutProperty('rhodesrooms700', 'visibility', 'none');
+               map.setLayoutProperty('rhodes700labels', 'visibility', 'none');
                map.setLayoutProperty('rhodesrooms600', 'visibility', 'visible');
                map.setLayoutProperty('rhodes600labels', 'visibility', 'visible');
+               map.setLayoutProperty('rhodes600rr', 'visibility', 'visible');
+
+            }
+             
+         }
+         function RhodesSeven(){
+            
+            var vis = map.getLayoutProperty('rhodesrooms700', 'visibility');
+            if (vis === 'visible'){
+               map.setLayoutProperty('rhodesrooms700', 'visibility', 'none');
+               map.setLayoutProperty('rhodes700labels', 'visibility', 'none');
+               map.setLayoutProperty('rhodes700rr', 'visibility', 'none');
+            }
+            else{
+               map.setLayoutProperty('rhodesrooms600', 'visibility', 'none');
+               map.setLayoutProperty('rhodes600labels', 'visibility', 'none');
+               map.setLayoutProperty('rhodesrooms700', 'visibility', 'visible');
+               map.setLayoutProperty('rhodes700labels', 'visibility', 'visible');
                map.setLayoutProperty('rhodes600rr', 'visibility', 'visible');
 
             }
