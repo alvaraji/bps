@@ -114,6 +114,7 @@
       </script>
 
       <script>
+         var coords;
          mapboxgl.accessToken = 'pk.eyJ1Ijoic2hhbmVoaWNrbWFuIiwiYSI6ImNrMXRsOXpwOTBzMm0zYmxtY3JmcjdmMjEifQ.dbva3v7IKJoQ_KB1j7re0w';
          const map = new mapboxgl.Map({
          container: 'map',
@@ -952,6 +953,53 @@
                showUserHeading: true //this option shows on the map the direction the user is heading; Don't know if we need this since we'll have a route?
             })
          );
+      
+         map.on('load', async() => {
+            await navigator.geolocation.getCurrentPosition(setCoordinates, coordsNotFound, options = {enableHighAccuracy: true});
+            map.addSource('userLocation', {
+               type:'geojson',
+               data: {
+                  'type': 'FeatureCollection',
+                  'features': [
+                     {
+                        'type': 'Feature',
+                        'geometry':{
+                           'type':'Point',
+                           'coordinates': [0, 0]
+                        }
+                     }
+                  ]
+               }
+            });
+            map.addLayer({
+               'id': 'userLocation',
+               'type': 'circle', //may want to replace with BPS symbol
+               'source': 'userLocation',
+               'paint': {
+                  'circle-color': '#B22222',
+                  'circle-radius': 10
+               }
+            });
+            const updateSource = setInterval(async ()=> {
+               await navigator.geolocation.getCurrentPosition(setCoordinates, coordsNotFound, options = {enableHighAccuracy: true});
+               if (coords != null){
+                  console.log("location getting tracked");
+                  var geojson = {
+                     'type': 'FeatureCollection',
+                     'features': [
+                        {
+                           'type': 'Feature',
+                           'geometry':{
+                              'type':'Point',
+                              'coordinates': [coords.longitude, coords.latitude]
+                           }
+                        }
+                     ]
+                  };
+                  map.getSource('userLocation').setData(geojson);
+            }
+            }, 10000);
+         });
          map.on('click', (event) => {
             const coords = Object.keys(event.lngLat).map((key) => event.lngLat[key]);
             const end = {
@@ -991,7 +1039,7 @@
                   },
                   paint: {
                   'circle-radius': 10,
-                  'circle-color': '#f30'
+                  'circle-color': '#B22222'
                   }
                });
             }
@@ -1032,7 +1080,7 @@
                      'line-cap': 'round'
                   },
                   paint: {
-                     'line-color': '#3887be',
+                     'line-color': '#D0312D',
                      'line-width': 5,
                      'line-opacity': 0.75
                   }
@@ -1049,7 +1097,6 @@
             data.duration / 60
             )} min </strong></p><ol>${tripInstructions}</ol>`;
          }
-         var coords;
          function setCoordinates(pos){ //sets global coords variable to user's current position
             coords = pos.coords;
             //put code in here that will allow to track user on the site
