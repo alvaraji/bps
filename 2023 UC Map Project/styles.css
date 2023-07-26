@@ -138,7 +138,7 @@ header {
   font-size: 15px;
 }
 
-.active, .collapsible:hover {
+.collapsible:hover {
   background-color: #b61031;
   width: 70%;
 }

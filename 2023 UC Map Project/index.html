@@ -134,11 +134,11 @@
             return;
          }
          const feature = features[0];
-
+            direction = feature.geometry.coordinates
             const popup = new mapboxgl.Popup({ offset: [0, -15] })
             .setLngLat(feature.geometry.coordinates)
             .setHTML(
-            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p><button onclick="pleasework()" type="button">Start Route</button>`
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p><button onclick="getRoute(direction)" type="button">Start Route</button>`
             )
             .addTo(map);
          });
@@ -497,11 +497,11 @@
             const feature = features[21];
 
             console.log(feature.properties.title);
-
+            direction = feature.geometry.coordinates;
             const popup = new mapboxgl.Popup({ offset: [0, -15] })
             .setLngLat(feature.geometry.coordinates)
             .setHTML(
-            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p><button onclick="getRoute(direction)" type="button">Start Route</button>`
             )
             .addTo(map);
          }
@@ -514,11 +514,11 @@
                return;
             }
             const feature = features[0];
-
+            direction = feature.geometry.coordinates;
             const popup = new mapboxgl.Popup({ offset: [0, -15] })
             .setLngLat(feature.geometry.coordinates)
             .setHTML(
-            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p><button onclick="getRoute(direction)" type="button">Start Route</button>`
             )
             .addTo(map);
          }
@@ -530,13 +530,13 @@
                return;
             }
             const feature = features[14];
-
+            direction = feature.geometry.coordinates;
             console.log(feature.properties.title);
 
             const popup = new mapboxgl.Popup({ offset: [0, -15] })
             .setLngLat(feature.geometry.coordinates)
             .setHTML(
-            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p><button onclick="getRoute(direction)" type="button">Start Route</button>`
             )
             .addTo(map);
          }
@@ -548,13 +548,13 @@
                return;
             }
             const feature = features[8];
-
+            direction = feature.geometry.coordinates;
             console.log(feature.properties.title);
 
             const popup = new mapboxgl.Popup({ offset: [0, -15] })
             .setLngLat(feature.geometry.coordinates)
             .setHTML(
-            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p><button onclick="getRoute(direction)" type="button">Start Route</button>`
             )
             .addTo(map);
          }
@@ -566,13 +566,13 @@
                return;
             }
             const feature = features[6];
-
+            direction = feature.geometry.coordinates;
             console.log(feature.properties.title);
 
             const popup = new mapboxgl.Popup({ offset: [0, -15] })
             .setLngLat(feature.geometry.coordinates)
             .setHTML(
-            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p><button onclick="getRoute(direction)" type="button">Start Route</button>`
             )
             .addTo(map);
          }
@@ -584,13 +584,13 @@
                return;
             }
             const feature = features[19];
-
+            direction = feature.geometry.coordinates;
             console.log(feature.properties.title);
 
             const popup = new mapboxgl.Popup({ offset: [0, -15] })
             .setLngLat(feature.geometry.coordinates)
             .setHTML(
-            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p><button onclick="getRoute(direction)" type="button">Start Route</button>`
             )
             .addTo(map);
          }
@@ -602,13 +602,13 @@
                return;
             }
             const feature = features[25];
-
+            direction = feature.geometry.coordinates;
             console.log(feature.properties.title);
 
             const popup = new mapboxgl.Popup({ offset: [0, -15] })
             .setLngLat(feature.geometry.coordinates)
             .setHTML(
-            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p><button onclick="getRoute(direction)" type="button">Start Route</button>`
             )
             .addTo(map);
          }
@@ -620,13 +620,13 @@
                return;
             }
             const feature = features[22];
-
+            direction = feature.geometry.coordinates;
             console.log(feature.properties.title);
 
             const popup = new mapboxgl.Popup({ offset: [0, -15] })
             .setLngLat(feature.geometry.coordinates)
             .setHTML(
-            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p><button onclick="getRoute(direction)" type="button">Start Route</button>`
             )
             .addTo(map);
          }
@@ -638,11 +638,11 @@
                return;
             }
             const feature = features[1];
-
+            direction = feature.geometry.coordinates;
             const popup = new mapboxgl.Popup({ offset: [0, -15] })
             .setLngLat(feature.geometry.coordinates)
             .setHTML(
-            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p><button onclick="getRoute(direction)" type="button">Start Route</button>`
             )
             .addTo(map);
          }
@@ -654,13 +654,13 @@
                return;
             }
             const feature = features[23];
-
+            direction = feature.geometry.coordinates;
             console.log(feature.properties.title);
 
             const popup = new mapboxgl.Popup({ offset: [0, -15] })
             .setLngLat(feature.geometry.coordinates)
             .setHTML(
-            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p><button onclick="getRoute(direction)" type="button">Start Route</button>`
             )
             .addTo(map);
          }
@@ -672,11 +672,11 @@
                return;
             }
             const feature = features[2];
-
+            direction = feature.geometry.coordinates;
             const popup = new mapboxgl.Popup({ offset: [0, -15] })
             .setLngLat(feature.geometry.coordinates)
             .setHTML(
-            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p><button onclick="getRoute(direction)" type="button">Start Route</button>`
             )
             .addTo(map);
          }
@@ -690,11 +690,11 @@
             const feature = features[24];
 
             console.log(feature.properties.title);
-
+            direction = feature.geometry.coordinates;
             const popup = new mapboxgl.Popup({ offset: [0, -15] })
             .setLngLat(feature.geometry.coordinates)
             .setHTML(
-            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p><button onclick="getRoute(direction)" type="button">Start Route</button>`
             )
             .addTo(map);
          }
@@ -706,13 +706,13 @@
                return;
             }
             const feature = features[18];
-
+            direction = feature.geometry.coordinates;
             console.log(feature.properties.title);
 
             const popup = new mapboxgl.Popup({ offset: [0, -15] })
             .setLngLat(feature.geometry.coordinates)
             .setHTML(
-            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p><button onclick="getRoute(direction)" type="button">Start Route</button>`
             )
             .addTo(map);
          }
@@ -724,13 +724,13 @@
                return;
             }
             const feature = features[17];
-
+            direction = feature.geometry.coordinates;
             console.log(feature.properties.title);
 
             const popup = new mapboxgl.Popup({ offset: [0, -15] })
             .setLngLat(feature.geometry.coordinates)
             .setHTML(
-            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p><button onclick="getRoute(direction)" type="button">Start Route</button>`
             )
             .addTo(map);
          }
@@ -742,13 +742,13 @@
                return;
             }
             const feature = features[16];
-
+            direction = feature.geometry.coordinates;
             console.log(feature.properties.title);
 
             const popup = new mapboxgl.Popup({ offset: [0, -15] })
             .setLngLat(feature.geometry.coordinates)
             .setHTML(
-            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p><button onclick="getRoute(direction)" type="button">Start Route</button>`
             )
             .addTo(map);
          }
@@ -760,13 +760,13 @@
                return;
             }
             const feature = features[20];
-
+            direction = feature.geometry.coordinates;
             console.log(feature.properties.title);
 
             const popup = new mapboxgl.Popup({ offset: [0, -15] })
             .setLngLat(feature.geometry.coordinates)
             .setHTML(
-            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p><button onclick="getRoute(direction)" type="button">Start Route</button>`
             )
             .addTo(map);
          }
@@ -778,13 +778,13 @@
                return;
             }
             const feature = features[15];
-
+            direction = feature.geometry.coordinates;
             console.log(feature.properties.title);
 
             const popup = new mapboxgl.Popup({ offset: [0, -15] })
             .setLngLat(feature.geometry.coordinates)
             .setHTML(
-            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p><button onclick="getRoute(direction)" type="button">Start Route</button>`
             )
             .addTo(map);
          }
@@ -796,13 +796,13 @@
                return;
             }
             const feature = features[12];
-
+            direction = feature.geometry.coordinates;
             console.log(feature.properties.title);
 
             const popup = new mapboxgl.Popup({ offset: [0, -15] })
             .setLngLat(feature.geometry.coordinates)
             .setHTML(
-            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p><button onclick="getRoute(direction)" type="button">Start Route</button>`
             )
             .addTo(map);
          }
@@ -815,13 +815,13 @@
                return;
             }
             const feature = features[3];
-
+            direction = feature.geometry.coordinates;
             console.log(feature.properties.title);
 
             const popup = new mapboxgl.Popup({ offset: [0, -15] })
             .setLngLat(feature.geometry.coordinates)
             .setHTML(
-            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p><button onclick="getRoute(direction)" type="button">Start Route</button>`
             )
             .addTo(map);
          }
@@ -833,13 +833,13 @@
                return;
             }
             const feature = features[10];
-
+            direction = feature.geometry.coordinates;
             console.log(feature.properties.title);
 
             const popup = new mapboxgl.Popup({ offset: [0, -15] })
             .setLngLat(feature.geometry.coordinates)
             .setHTML(
-            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p><button onclick="getRoute(direction)" type="button">Start Route</button>`
             )
             .addTo(map);
          }
@@ -851,13 +851,13 @@
                return;
             }
             const feature = features[5];
-
+            direction = feature.geometry.coordinates;
             console.log(feature.properties.title);
 
             const popup = new mapboxgl.Popup({ offset: [0, -15] })
             .setLngLat(feature.geometry.coordinates)
             .setHTML(
-            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p><button onclick="getRoute(direction)" type="button">Start Route</button>`
             )
             .addTo(map);
          }
@@ -869,13 +869,13 @@
                return;
             }
             const feature = features[13];
-
+            direction = feature.geometry.coordinates;
             console.log(feature.properties.title);
 
             const popup = new mapboxgl.Popup({ offset: [0, -15] })
             .setLngLat(feature.geometry.coordinates)
             .setHTML(
-            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p><button onclick="getRoute(direction)" type="button">Start Route</button>`
             )
             .addTo(map);
          }
@@ -887,11 +887,11 @@
                return;
             }
             const feature = features[4];
-
+            direction = feature.geometry.coordinates;
             const popup = new mapboxgl.Popup({ offset: [0, -15] })
             .setLngLat(feature.geometry.coordinates)
             .setHTML(
-            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p><button onclick="getRoute(direction)" type="button">Start Route</button>`
             )
             .addTo(map);
          }
@@ -903,13 +903,13 @@
                return;
             }
             const feature = features[7];
-
+            direction = feature.geometry.coordinates;
             console.log(feature.properties.title);
 
             const popup = new mapboxgl.Popup({ offset: [0, -15] })
             .setLngLat(feature.geometry.coordinates)
             .setHTML(
-            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p><button onclick="getRoute(direction)" type="button">Start Route</button>`
             )
             .addTo(map);
          }
@@ -921,13 +921,13 @@
                return;
             }
             const feature = features[11];
-
+            direction = feature.geometry.coordinates;
             console.log(feature.properties.title);
 
             const popup = new mapboxgl.Popup({ offset: [0, -15] })
             .setLngLat(feature.geometry.coordinates)
             .setHTML(
-            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p><button onclick="getRoute(direction)" type="button">Start Route</button>`
             )
             .addTo(map);
          }
@@ -939,13 +939,13 @@
                return;
             }
             const feature = features[9];
-
+            direction = feature.geometry.coordinates;
             console.log(feature.properties.title);
 
             const popup = new mapboxgl.Popup({ offset: [0, -15] })
             .setLngLat(feature.geometry.coordinates)
             .setHTML(
-            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p><button onclick="getRoute(direction)" type="button">Start Route</button>`
             )
             .addTo(map);
          }
@@ -1061,51 +1061,51 @@
             })
          );
          //function pleasework() {
-            map.on('click', (event) => {
-               const coords = Object.keys(event.lngLat).map((key) => event.lngLat[key]);
-               const end = {
-                  type: 'FeatureCollection',
-                  features: [
-                     {
-                     type: 'Feature',
-                     properties: {},
-                     geometry: {
-                        type: 'Point',
-                        coordinates: coords
-                     }
-                     }
-                  ]
-               };
-               if (map.getLayer('end')) {
-                  map.getSource('end').setData(end);
-               } else {
-                  map.addLayer({
-                     id: 'end',
-                     type: 'circle',
-                     source: {
-                     type: 'geojson',
-                     data: {
-                        type: 'FeatureCollection',
-                        features: [
-                           {
-                           type: 'Feature',
-                           properties: {},
-                           geometry: {
-                              type: 'Point',
-                              coordinates: coords
-                           }
-                           }
-                        ]
-                     }
-                     },
-                     paint: {
-                     'circle-radius': 10,
-                     'circle-color': '#f30'
-                     }
-                  });
-               }
-               getRoute(coords);
-            });
+            // map.on('click', (event) => {
+            //    const coords = Object.keys(event.lngLat).map((key) => event.lngLat[key]);
+            //    const end = {
+            //       type: 'FeatureCollection',
+            //       features: [
+            //          {
+            //          type: 'Feature',
+            //          properties: {},
+            //          geometry: {
+            //             type: 'Point',
+            //             coordinates: coords
+            //          }
+            //          }
+            //       ]
+            //    };
+            //    if (map.getLayer('end')) {
+            //       map.getSource('end').setData(end);
+            //    } else {
+            //       map.addLayer({
+            //          id: 'end',
+            //          type: 'circle',
+            //          source: {
+            //          type: 'geojson',
+            //          data: {
+            //             type: 'FeatureCollection',
+            //             features: [
+            //                {
+            //                type: 'Feature',
+            //                properties: {},
+            //                geometry: {
+            //                   type: 'Point',
+            //                   coordinates: coords
+            //                }
+            //                }
+            //             ]
+            //          }
+            //          },
+            //          paint: {
+            //          'circle-radius': 10,
+            //          'circle-color': '#f30'
+            //          }
+            //       });
+            //    }
+            //    getRoute(coords);
+            // });
             
          async function getRoute(end){
             console.log(end);
