@@ -65,7 +65,11 @@
                   <li onclick="Mantei()">Mantei Center</li>
                   <li onclick="Old()">Old Chem</li>
                   <li onclick="Rieveschl()">Rieveschl Hall</li>
-                  <li onclick="Rhodes()">Rhodes Hall</li>
+                  <button type="button" class="collapsible"><li onclick="Rhodes()">Rhodes Hall</li></button>
+                  <div class="content">
+                     <button onclick = "RhodesSix()" > 600 Level </button>
+                     <button onclick = "RhodesSeven()" > 700 Level </button>
+                  </div>
                   <li onclick="Swift()">Swift Hall</li>
                </div>
 
@@ -86,7 +90,7 @@
             <div class="toggle">
                <ion-icon name="menu-outline"></ion-icon>
             </div>
-            <div class="map" id="map">
+            <div class="map" id="map" style="width: 120%;">
                <div class="instructions" id="instructions"></div>
             </div>
             
@@ -119,7 +123,7 @@
          const map = new mapboxgl.Map({
          container: 'map',
          style: 'mapbox://styles/shanehickman/cljvqjtfm01lk01pdgt4shshy',
-         center: [-84.515, 39.1329],
+         center: [-84.51272040140698, 39.132154125261735],
          zoom: 15
          });
          
@@ -135,11 +139,11 @@
             const popup = new mapboxgl.Popup({ offset: [0, -15] })
             .setLngLat(feature.geometry.coordinates)
             .setHTML(
-            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+            `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p><button onclick="pleasework()" type="button">Start Route</button>`
             )
             .addTo(map);
          });
-
+         
          
          //Menu Toggle
          let toggle = document.querySelector('.toggle');
@@ -411,8 +415,72 @@
 
             }
             else if (search.toLowerCase().includes('rhodes ')){
+               const splitSearch = search.split(" ");
                
+               if (parseInt(splitSearch[1]) >= 600 && parseInt(splitSearch[1]) < 700){
+                  RhodesSix();
+                  const features = map.querySourceFeatures('composite', {
+                        'sourceLayer': 'rhodes600labels'
+                  });
+                  let acpt = false;
+                     let i = 0;
+                     let feature = null;
+                     while (i < features.length){
+  
+                        if (features[i].properties.text == parseInt(splitSearch[1])){
+                           feature = features[i];
+                           acpt = true;
+                           break;
+                        }
+                        i++;
+                     }
+                     if (acpt == true){
+                        console.log(feature.properties.text);
+
+                        const popup = new mapboxgl.Popup({ offset: [0, -15] })
+                        .setLngLat(feature.geometry.coordinates)
+                        .setHTML(
+                        `<h3>${feature.properties.text}</p>`
+                        )
+                        .addTo(map);
+                     }
+                     
+
+               }
+               else if (parseInt(splitSearch[1]) >= 700 && parseInt(splitSearch[1]) < 800){
+                  RhodesSeven();
+                  const features = map.querySourceFeatures('composite', {
+                        'sourceLayer': 'rhodes700labels'
+                  });
+                  let acpt = false;
+                     let i = 0;
+                     let feature = null;
+                     while (i < features.length){
+  
+                        if (features[i].properties.text == parseInt(splitSearch[1])){
+                           feature = features[i];
+                           acpt = true;
+                           break;
+                        }
+                        i++;
+                     }
+                     if (acpt == true){
+                        console.log(feature.properties.text);
+
+                        const popup = new mapboxgl.Popup({ offset: [0, -15] })
+                        .setLngLat(feature.geometry.coordinates)
+                        .setHTML(
+                        `<h3>${feature.properties.text}</p>`
+                        )
+                        .addTo(map);
+                     }
+
+
+               }
+
+
             }
+            
 
 
          }
@@ -890,7 +958,11 @@
             map.setLayoutProperty('baldwin700labels', 'visibility', 'none');
             map.setLayoutProperty('baldwinrooms800', 'visibility', 'none');
             map.setLayoutProperty('baldwin800labels', 'visibility', 'none');
-
+            map.setLayoutProperty('rhodesrooms600', 'visibility', 'none');
+            map.setLayoutProperty('rhodes600labels', 'visibility', 'none');
+            map.setLayoutProperty('rhodes600rr', 'visibility', 'none');
+            map.setLayoutProperty('rhodesrooms700', 'visibility', 'none');
+            map.setLayoutProperty('rhodes700labels', 'visibility', 'none');
 
          })
          
@@ -939,6 +1011,42 @@
                map.setLayoutProperty('baldwin600labels', 'visibility', 'none');
                map.setLayoutProperty('baldwinrooms700', 'visibility', 'none');
                map.setLayoutProperty('baldwin700labels', 'visibility', 'none');
+            }
+             
+         }
+         function RhodesSix(){
+            
+            var vis = map.getLayoutProperty('rhodesrooms600', 'visibility');
+            if (vis === 'visible'){
+               map.setLayoutProperty('rhodesrooms600', 'visibility', 'none');
+               map.setLayoutProperty('rhodes600labels', 'visibility', 'none');
+               map.setLayoutProperty('rhodes600rr', 'visibility', 'none');
+            }
+            else{
+               map.setLayoutProperty('rhodesrooms700', 'visibility', 'none');
+               map.setLayoutProperty('rhodes700labels', 'visibility', 'none');
+               map.setLayoutProperty('rhodesrooms600', 'visibility', 'visible');
+               map.setLayoutProperty('rhodes600labels', 'visibility', 'visible');
+               map.setLayoutProperty('rhodes600rr', 'visibility', 'visible');
+
+            }
+             
+         }
+         function RhodesSeven(){
+            
+            var vis = map.getLayoutProperty('rhodesrooms700', 'visibility');
+            if (vis === 'visible'){
+               map.setLayoutProperty('rhodesrooms700', 'visibility', 'none');
+               map.setLayoutProperty('rhodes700labels', 'visibility', 'none');
+               map.setLayoutProperty('rhodes700rr', 'visibility', 'none');
+            }
+            else{
+               map.setLayoutProperty('rhodesrooms600', 'visibility', 'none');
+               map.setLayoutProperty('rhodes600labels', 'visibility', 'none');
+               map.setLayoutProperty('rhodesrooms700', 'visibility', 'visible');
+               map.setLayoutProperty('rhodes700labels', 'visibility', 'visible');
+               map.setLayoutProperty('rhodes600rr', 'visibility', 'visible');
+
             }
              
          }
@@ -1000,50 +1108,51 @@
             }
             }, 10000);
          });
-         map.on('click', (event) => {
-            const coords = Object.keys(event.lngLat).map((key) => event.lngLat[key]);
-            const end = {
-               type: 'FeatureCollection',
-               features: [
-                  {
-                  type: 'Feature',
-                  properties: {},
-                  geometry: {
-                     type: 'Point',
-                     coordinates: coords
-                  }
-                  }
-               ]
-            };
-            if (map.getLayer('end')) {
-               map.getSource('end').setData(end);
-            } else {
-               map.addLayer({
-                  id: 'end',
-                  type: 'circle',
-                  source: {
-                  type: 'geojson',
-                  data: {
-                     type: 'FeatureCollection',
-                     features: [
-                        {
-                        type: 'Feature',
-                        properties: {},
-                        geometry: {
-                           type: 'Point',
-                           coordinates: coords
-                        }
-                        }
-                     ]
-                  }
-                  },
-                  paint: {
-                  'circle-radius': 10,
-                  'circle-color': '#B22222'
-                  }
-               });
-            }
-            getRoute(coords);
+         //function pleasework() {
+            map.on('click', (event) => {
+               const coords = Object.keys(event.lngLat).map((key) => event.lngLat[key]);
+               const end = {
+                  type: 'FeatureCollection',
+                  features: [
+                     {
+                     type: 'Feature',
+                     properties: {},
+                     geometry: {
+                        type: 'Point',
+                        coordinates: coords
+                     }
+                     }
+                  ]
+               };
+               if (map.getLayer('end')) {
+                  map.getSource('end').setData(end);
+               } else {
+                  map.addLayer({
+                     id: 'end',
+                     type: 'circle',
+                     source: {
+                     type: 'geojson',
+                     data: {
+                        type: 'FeatureCollection',
+                        features: [
+                           {
+                           type: 'Feature',
+                           properties: {},
+                           geometry: {
+                              type: 'Point',
+                              coordinates: coords
+                           }
+                           }
+                        ]
+                     }
+                     },
+                     paint: {
+                     'circle-radius': 10,
+                     'circle-color': '#B22222'
+                     }
+                  });
+               }
+               getRoute(coords);
             });
             
          async function getRoute(end){
@@ -1104,6 +1213,7 @@
          function coordsNotFound(err){
             console.log(err); //more error handling can be done here; maybe a popup with message?
          }
+      //}
 
       </script>
    </body>
