@@ -274,11 +274,12 @@
 
                      feature = features[0]
                      console.log(feature.properties.text);
+                     direction = feature.geometry.coordinates;
 
                      const popup = new mapboxgl.Popup({ offset: [0, -15] })
                      .setLngLat(feature.geometry.coordinates)
                      .setHTML(
-                     `<h3>${feature.properties.text}</p>`
+                     `<h3>${feature.properties.text}</p><button onclick="getRoute(direction)" type="button">Start Route</button>`
                      )
                      .addTo(map);
    
@@ -295,6 +296,7 @@
 
 
                      console.log(feature.properties.text);
+                     direction = feature.geometry.coordinates;
 
                      const popup = new mapboxgl.Popup({ offset: [0, -15] })
                      .setLngLat(feature.geometry.coordinates)
@@ -314,11 +316,12 @@
 
 
                      console.log(feature.properties.text);
+                     direction = feature.geometry.coordinates;
 
                      const popup = new mapboxgl.Popup({ offset: [0, -15] })
                      .setLngLat(feature.geometry.coordinates)
                      .setHTML(
-                     `<h3>${feature.properties.text}</p>`
+                     `<h3>${feature.properties.text}</p><button onclick="getRoute(direction)" type="button">Start Route</button>`
                      )
                      .addTo(map);
                }
@@ -333,11 +336,12 @@
 
 
                      console.log(feature.properties.text);
+                     direction = feature.geometry.coordinates;
 
                      const popup = new mapboxgl.Popup({ offset: [0, -15] })
                      .setLngLat(feature.geometry.coordinates)
                      .setHTML(
-                     `<h3>${feature.properties.text}</p>`
+                     `<h3>${feature.properties.text}</p><button onclick="getRoute(direction)" type="button">Start Route</button>`
                      )
                      .addTo(map);
                }
@@ -368,13 +372,17 @@
                      if (acpt == true){
 
                         console.log(feature.properties.text);
+                        direction = feature.geometry.coordinates;
 
                         const popup = new mapboxgl.Popup({ offset: [0, -15] })
                         .setLngLat(feature.geometry.coordinates)
                         .setHTML(
-                        `<h3>${feature.properties.text}</p>`
+                        `<h3>${feature.properties.text}</p><button onclick="getRoute(direction)" type="button">Start Route</button>`
                         )
                         .addTo(map);
+                     }
+                     if (acpt == false){
+                        alert("Room not found")
                      }
                      
                   }
@@ -400,13 +408,17 @@
                      }
                      if (acpt == true){
                         console.log(feature.properties.text);
+                        direction = feature.geometry.coordinates;
 
                         const popup = new mapboxgl.Popup({ offset: [0, -15] })
                         .setLngLat(feature.geometry.coordinates)
                         .setHTML(
-                        `<h3>${feature.properties.text}</p>`
+                        `<h3>${feature.properties.text}</p><button onclick="getRoute(direction)" type="button">Start Route</button>`
                         )
                         .addTo(map);
+                     }
+                     if (acpt == false){
+                        alert("Room not found")
                      }
                      
 
@@ -436,13 +448,17 @@
                      }
                      if (acpt == true){
                         console.log(feature.properties.text);
+                        direction = feature.geometry.coordinates;
 
                         const popup = new mapboxgl.Popup({ offset: [0, -15] })
                         .setLngLat(feature.geometry.coordinates)
                         .setHTML(
-                        `<h3>${feature.properties.text}</p>`
+                        `<h3>${feature.properties.text}</p><button onclick="getRoute(direction)" type="button">Start Route</button>`
                         )
                         .addTo(map);
+                     }
+                     if (acpt == false){
+                        alert("Room not found")
                      }
                      
 
@@ -466,13 +482,16 @@
                      }
                      if (acpt == true){
                         console.log(feature.properties.text);
-
+                        direction = feature.geometry.coordinates;
                         const popup = new mapboxgl.Popup({ offset: [0, -15] })
                         .setLngLat(feature.geometry.coordinates)
                         .setHTML(
-                        `<h3>${feature.properties.text}</p>`
+                        `<h3>${feature.properties.text}</p><button onclick="getRoute(direction)" type="button">Start Route</button>`
                         )
                         .addTo(map);
+                     }
+                     if (acpt == false){
+                        alert("Room not found")
                      }
 
 
