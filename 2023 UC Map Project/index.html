@@ -267,6 +267,11 @@
                
                if (splitSearch[1] == 'Library'){
                   baldwinEight();
+                  var vis = map.getLayoutProperty('baldwinrooms800', 'visibility');
+                  if (vis == 'none'){
+                     baldwinEight();
+
+                  }
                   // also bring up library pop-up
                   const features = map.querySourceFeatures('composite', {
                         'sourceLayer': 'baldwin800labels'
@@ -287,6 +292,11 @@
                }
                else if(splitSearch[1] == '860A'){
                   baldwinEight();
+                  var vis = map.getLayoutProperty('baldwinrooms800', 'visibility');
+                  if (vis == 'none'){
+                     baldwinEight();
+
+                  }
                   //also bring up 860A pop-up
                   const features = map.querySourceFeatures('composite', {
                         'sourceLayer': 'baldwin800labels'
@@ -307,6 +317,11 @@
                }
                else if(splitSearch[1] == '860B'){
                   baldwinEight();
+                  var vis = map.getLayoutProperty('baldwinrooms800', 'visibility');
+                  if (vis == 'none'){
+                     baldwinEight();
+
+                  }
                   //also bring up 860B pop-up
                   const features = map.querySourceFeatures('composite', {
                         'sourceLayer': 'baldwin800labels'
@@ -327,6 +342,11 @@
                }
                else if(splitSearch[1] == '860' || splitSearch[1] == 860){
                   baldwinEight();
+                  var vis = map.getLayoutProperty('baldwinrooms800', 'visibility');
+                  if (vis == 'none'){
+                     baldwinEight();
+
+                  }
                   //also bring up 860B pop-up
                   const features = map.querySourceFeatures('composite', {
                         'sourceLayer': 'baldwin800labels'
@@ -348,6 +368,11 @@
                else{
                   if(parseInt(splitSearch[1]) > 700 && parseInt(splitSearch[1]) < 800){
                      baldwinSeven()
+                     var vis = map.getLayoutProperty('baldwinrooms700', 'visibility');
+                     if (vis == 'none'){
+                        baldwinSeven();
+
+                     }
                      // for loop to go through the floor - need to continue to debug.
                      const features = map.querySourceFeatures('composite', {
                         'sourceLayer': 'baldwin700labels'
@@ -388,6 +413,12 @@
                   }
                   else if (parseInt(splitSearch[1]) > 600 && parseInt(splitSearch[1]) < 700){
                      baldwinSix()
+                     var vis = map.getLayoutProperty('baldwinrooms600', 'visibility');
+                     if (vis == 'none'){
+                        baldwinSix();
+
+                     }
+                     
 
                      const features = map.querySourceFeatures('composite', {
                         'sourceLayer': 'baldwin600labels'
@@ -431,6 +462,11 @@
                
                if (parseInt(splitSearch[1]) >= 600 && parseInt(splitSearch[1]) < 700){
                   RhodesSix();
+                  var vis = map.getLayoutProperty('rhodesrooms600', 'visibility');
+                  if (vis == 'none'){
+                     RhodesSix();
+
+                  }
                   const features = map.querySourceFeatures('composite', {
                         'sourceLayer': 'rhodes600labels'
                   });
@@ -465,6 +501,13 @@
                }
                else if (parseInt(splitSearch[1]) >= 700 && parseInt(splitSearch[1]) < 800){
                   RhodesSeven();
+
+                  var vis = map.getLayoutProperty('rhodesrooms700', 'visibility');
+                  if (vis == 'none'){
+                     RhodesSeven();
+
+                  }
+
                   const features = map.querySourceFeatures('composite', {
                         'sourceLayer': 'rhodes700labels'
                   });
